@@ -6,16 +6,47 @@
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        {% stylesheet app %}
 
     </head>
     <body>
 
-        <div class="site">
+        <!-- Navbar Header -->
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">{{site.name}}</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <main class="container site">
+            {{content}}
+        </main>
+
+	
+
+
+
+
+       <!--<div class="site">
           <div class="header">
             <h1 class="title"><a href="/">{{ site.name }}</a></h1>
             <a class="extra" href="/">home</a>
@@ -38,7 +69,8 @@
               </p>
             </div>
           </div>
-        </div>
+        </div>-->
 
+        {% javascript app %}
     </body>
 </html>
