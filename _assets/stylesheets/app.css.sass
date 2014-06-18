@@ -1,5 +1,11 @@
 //= require syntax
-//= require_tree ./vender
+@import 'vender/bootstrap'
+
+$screen-sm-max: 767px
 
 body
   padding-top: 70px
+
+@media screen and (max-width: $screen-sm-max)
+  .site
+    @extend .text-center
