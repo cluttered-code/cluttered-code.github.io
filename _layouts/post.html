@@ -1,9 +1,14 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
+<article>
+    <h2>
+        <span class="visible-xs center-block">{{page.title}}</span>
+        <span class="hidden-xs">{{page.title}}</span>
+        <small>{{page.date | date_to_string}}</small>
+    </h2>
+  
+    {{ content }}
 
-<div class="post">
-{{ content }}
-</div>
+    <a href="{{post.url}}">Continue Reading...</a>
+</article>
