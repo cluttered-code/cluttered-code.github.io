@@ -3,3 +3,5 @@
 
 $ ->
   console.log 'Page Loaded!'
+
+  $('[data-toggle="tooltip"]').tooltip()
