@@ -14,7 +14,8 @@
         <header>
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
+
+                    <!-- Brand and Toggle -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -25,7 +26,7 @@
                         <a class="navbar-brand" href="/">{{site.name}}</a>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <!-- Navbar Toggle Collapse -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
@@ -69,6 +70,7 @@
 
         <div class="container">
             <div class="row">
+
                 <aside class="col-sm-3 text-center sidebar">
                     <img src="http://www.gravatar.com/avatar/59307d27e751bc991419cc6b2c5044d2.png?s=180" class="img-thumbnail" />
                 </aside>
@@ -76,36 +78,9 @@
                 <main class="site col-sm-9">
                     {{content}}
                 </main>
+
             </div>
         </div>
-
-
-
-
-       <!--<div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>-->
 
         {% javascript app %}
     </body>
