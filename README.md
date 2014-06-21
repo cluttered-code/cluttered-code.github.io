@@ -4,5 +4,5 @@
 
 ALWAYS COMMIT TO development BRANCH
 
-to push to master run:
+to compile assets and push to master run:
 rake publish
