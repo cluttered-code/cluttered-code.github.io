@@ -2,15 +2,12 @@
 #= require vender/bootstrap
 
 $ ->
-  console.log 'Page Loaded!'
 
-  # Enable twitter bootstrap tooltips
+  ### Enable Twitter Bootstrap Tooltips ###
   $('[data-toggle="tooltip"]').tooltip()
 
-  # * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * 
-  disqus_shortname = "clutteredcode" # required: replace example with your forum shortname
-
-  # * * DON'T EDIT BELOW THIS LINE * * 
+  ### Enable Disqus Comments ###
+  disqus_shortname = "clutteredcode"
   (->
     s = document.createElement("script")
     s.async = true
