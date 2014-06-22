@@ -1,6 +1,7 @@
 ---
 layout: post
-title:  "Brain New Beginnings"
+title: "Brain New Beginnings"
+date: 2014-06-22 00:00:00
 categories: "neural network"
 tags: [neuron, activation]
 ---
@@ -42,4 +43,21 @@ It has evolved a bit since then but the basic principle is the same.
 
 ### Artificial Neuron
 
-![Artificial Neuron](http://www.global-warming-and-the-climate.com/images/Neuron-input.GIF)
+![Artificial Neuron](/images/artificial-neuron.png)
+
+1. The neuron is given a list of inputs.
+
+2. Performs the dot product of the input and weight lists plus the bias:
+
+    **Equation:** $$ bias + \sum_{i=0}^{n} input_{i} (weight_{i}) $$
+
+3. Uses an activation function to normalize the output:
+  * **Linear:** $$ f(x) = x $$
+  * **Sigmoid:** $$ f(x) = \frac{1}{1 + e^{-x}} $$
+  * **Hyperbolic Tangent:** $$ f(x) = \frac{1 - e^{-2x}}{1 + e^{-2x}} $$
+
+4. Return the output
+
+---
+
+**In the next post we'll begin building the neural network using `Java 8`.**
