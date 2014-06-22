@@ -35,7 +35,7 @@ You'd be surprised at how few neurons it actually takes to build a neural networ
 
 Image of neuron linked from [cancer.gov](http://training.seer.cancer.gov/images/brain/neuron.jpg)
 
-In our simplified version of a neuron we'll just assume that the `dendrites` represent the inputs, the `neucleus` calculates the output, and the `axon terminals` are the outputs.
+In our simplified version of a neuron we'll just assume that the `dendrites` represent the inputs, the `cell body` calculates the output, and the `axon terminals` are the outputs.
 The first algorithmic attempt at creating a neuron was call a `perceptron` and was invented by Frank Rosenblatt in 1957 [citation](https://www.zotero.org/tats/items/itemKey/54SFBCZ9).
 It has evolved a bit since then but the basic principle is the same.
 
@@ -49,7 +49,7 @@ It has evolved a bit since then but the basic principle is the same.
 
 2. Performs the dot product of the input and weight lists plus the bias:
 
-    **Equation:** $$ bias + \sum_{i=0}^{n} input_{i} (weight_{i}) $$
+    **Equation:** $$ bias + \sum_{i=1}^{n} input_{i} (weight_{i}) $$
 
 3. Uses an activation function to normalize the output:
   * **Linear:** $$ f(x) = x $$
