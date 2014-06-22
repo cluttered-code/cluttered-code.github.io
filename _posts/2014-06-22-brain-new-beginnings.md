@@ -2,8 +2,8 @@
 layout: post
 title: "Brain New Beginnings"
 date: 2014-06-22 00:00:00
-categories: "neural network"
-tags: [neuron, activation]
+categories: [neural network]
+tags: [neuron]
 ---
 
 **Hello, World!**
