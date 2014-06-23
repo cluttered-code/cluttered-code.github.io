@@ -4,5 +4,9 @@
 *~
 
 
+### Intellij ###
+.idea/
+
+
 ### Jekyll ###
 _site/
