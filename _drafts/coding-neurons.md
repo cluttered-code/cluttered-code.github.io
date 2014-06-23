@@ -11,8 +11,10 @@ from scratch using `Java8` and `lambda` functions.
 The previous post contained a brief history of the artificial neuron as well as a naive comparison to a biological neuron.
 `Link to '2014-06-22-brain-new-beginnings'`
 
-**There are some complex equations in this post, I'll try to make it as easy to follow as possible. 
-Feel free to post questions in the comments section.**
+**Github Source Code:** [neural-network](https://github.com/cluttered-code/neural-network)
+
+*There are some complex equations in this post, I'll try to make it as easy to follow as possible. 
+Feel free to post questions in the comments section.*
 
 ---
 
@@ -65,7 +67,7 @@ The hyperbolic tangent function will normalize a given input into a value betwee
 This is more versatile than the sigmoid function and can be used to allow neurons to cancel each other out. 
 Can be used to more effectively determine buy/hold/sell states in data with negative and positive states.
 
-**Code**
+#### **Code**
 
 Each neuron will need an `ActivationFunction`. 
 The function can be different for individual neurons and is a single function so it is the 
@@ -82,6 +84,8 @@ public interface ActivationFunction {
 {% endhighlight %}
 
 Now we can define these functions as lambdas!
+
+**Source Code:** [ActivationFunction](https://github.com/cluttered-code/neural-network/blob/master/src/main/java/com/clutteredcode/ann/activation/ActivationFunction.java)
 
 There is a finite number of possible functions, I hope I made that obvious enough. 
 When there is a finite number of options it's enumerator time. 
@@ -101,7 +105,7 @@ public enum ActivationType {
 Now we need a way to map from the `ActivationType` to the actual function. Enumerators in java are 
 objects just like almost everything else, we just have to add a method to do use the `enum` to give us what we want. 
 
-**SPOILER ALERT, ACTUAL LAMBDA AHEAD** I added this method to `ActivationType` to accomplish that.
+**Spoiler Alert: Lambda Ahead** I added this method to `ActivationType` to accomplish that.
 {% highlight java %}
 public ActivationFunction getFunction() {
     if (this == TAN_H)
@@ -120,6 +124,69 @@ All you have to do to get your `ActivationFunction` now is:
 ActivationType.TAN_H.getFunction();
 {% endhighlight %}
 
+**Source Code:**  [ActivationType](https://github.com/cluttered-code/neural-network/blob/master/src/main/java/com/clutteredcode/ann/activation/ActivationType.java)
+
 *Side Note:* we didn't have to use lambdas here. We could have written a class for each function and had it 
 implement `ActivationFunction` but then we would have 3 more classes. This way all the definitions 
 are all in one convenient place `ActivationType`.
+
+---
+
+### Neuron
+
+Each neuron will need the following properties:
+
+* bias
+* weights
+* activationType
+
+I created an `Neuron` class with those properties and a constructor to set them. I made the properties protected. 
+This way I have access to them within the package making them easy to test and later if we extend them we'll still 
+have direct access to the properties in the child object.
+
+{% highlight java %}
+public class Neuron {
+
+    protected double bias;
+    protected double[] weights;
+    protected ActivationType activationType;
+
+    public Neuron(final ActivationType activationType, final double bias, final double[] weights) {
+        this.bias = bias;
+        this.weights = weights;
+        this.activationType = activationType;
+    }
+}
+{% endhighlight %}
+
+The Neuron needs to perform the dot product summation function:
+
+$$ bias + \sum_{i=1}^{n} input_{i} (weight_{i}) $$
+
+Add this method to class to accomplish that.
+
+{% highlight java %}
+private double dotProduct(final double[] inputs) {
+    // Guard Clause: input and weight size mismatch
+    if (inputs.length != weights.length)
+        throw new IllegalArgumentException("inputs (" + inputs.length + ") and weights (" + weights.length + ") must have the same number of elements");
+
+    double sum = bias;
+
+    for (int i = 0; i < inputs.length; ++i)
+        sum += weights[i] * inputs[i];
+
+    return sum;
+}
+{% endhighlight %}
+
+The Neuron also needs a fire function that accepts the inputs and returns the calculated output. 
+All it does is pass the inputs into the dotProduct() method
+
+{% highlight java %}
+public double fire(final double[] inputs) {
+    return activationType.getFunction().activate(dotProduct(inputs));
+}
+{% endhighlight %}
+
+**Source Code:**  [Neuron](https://github.com/cluttered-code/neural-network/blob/master/src/main/java/com/clutteredcode/ann/Neuron.java)
