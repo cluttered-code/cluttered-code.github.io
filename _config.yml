@@ -1,0 +1,16 @@
+# Site settings
+title: Cluttered Code
+description: "Incoherent snippets from a code junkie"
+baseurl: ""
+url: "http://cluttered-code.github.io/"
+
+# Author
+author: David Clutter
+email: cluttered.code@gmail.com
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  sass_dir: _sass
+  style: :compressed
