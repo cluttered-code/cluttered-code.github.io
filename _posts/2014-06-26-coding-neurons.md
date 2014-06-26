@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Coding Neurons"
+date: 2014-06-26 16:00:00
 categories: [neural network]
 tags: [neuron, java8, lambda]
 ---
@@ -8,8 +9,7 @@ tags: [neuron, java8, lambda]
 In this post we'll begin building the first piece of a `Neural Network`, a `Neuron`, 
 from scratch using `Java8` and `lambda` functions.
 
-The previous post contained a brief history of the artificial neuron as well as a naive comparison to a biological neuron.
-`Link to '2014-06-22-brain-new-beginnings'`
+Previous post: [Brain New Beginnings]({{"neural network/2014/06/21/brain-new-beginnings/" | prepend: site.baseurl | prepend: site.url}})
 
 **Github Source Code:** <a href="https://github.com/cluttered-code/neural-network" target="_blank">neural-network</a>
 
@@ -161,7 +161,7 @@ public class Neuron {
 
 The Neuron needs to perform the dot product summation function:
 
-$$ bias + \sum_{i=1}^{n} input_{i} (weight_{i}) $$
+$$ \sum_{i=1}^{n} input_{i} (weight_{i}) $$
 
 Add this method to class to accomplish that.
 
@@ -171,8 +171,7 @@ private double dotProduct(final double[] inputs) {
     if (inputs.length != weights.length)
         throw new IllegalArgumentException("inputs (" + inputs.length + ") and weights (" + weights.length + ") must have the same number of elements");
 
-    double sum = bias;
-
+    double sum = 0.0;
     for (int i = 0; i < inputs.length; ++i)
         sum += weights[i] * inputs[i];
 
@@ -181,11 +180,11 @@ private double dotProduct(final double[] inputs) {
 {% endhighlight %}
 
 The Neuron also needs a fire function that accepts the inputs and returns the calculated output. 
-All it does is pass the inputs into the dotProduct() method
+All it does is pass the inputs into the dotProduct() method, add bias, and pass that into the activate function.
 
 {% highlight java %}
 public double fire(final double[] inputs) {
-    return activationType.getFunction().activate(dotProduct(inputs));
+    return activationType.getFunction().activate(bias + dotProduct(inputs));
 }
 {% endhighlight %}
 
