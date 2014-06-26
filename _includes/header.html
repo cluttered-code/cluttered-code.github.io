@@ -17,6 +17,15 @@
             <div class="collapse navbar-collapse" id="navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a class="visible-xs" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                            <i class="fa fa-rss"></i> RSS Feed
+                        </a>
+                        <a class="hidden-xs" href="{{ "/feed.xml" | prepend: site.baseurl }}"
+                           data-toggle="tooltip" data-placement="bottom" title="RSS Feed">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </li>
+                    <li>
                         <a class="visible-xs" target="_blank" href="https://twitter.com/cluttered_code">
                             <i class="fa fa-twitter"></i> Twitter Feed
                         </a>
