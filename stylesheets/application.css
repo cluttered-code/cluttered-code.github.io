@@ -1,0 +1,42 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 25px;
+}
+
+li {
+  text-align: left;
+}
+
+main img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.highlight {
+  text-align: left;
+}
+
+.highlight pre {
+  word-wrap: normal;
+}
+
+.highlight pre code {
+  white-space: pre;
+}
+
+.navbar-fixed-bottom {
+  min-height: 20px;
+  text-align: center;
+}
+
+.navbar-fixed-bottom .container-fluid {
+  color: #999;
+}
+
+@media screen and (max-width: 767px) {
+  .site {
+    text-align: center;
+  }
+}
