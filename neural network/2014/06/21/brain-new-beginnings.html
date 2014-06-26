@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Cluttered Code | Blog</title>
+    <title>Brain New Beginnings</title>
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="http://www.gravatar.com/avatar/59307d27e751bc991419cc6b2c5044d2.png?s=16"
           type="image/x-icon">
@@ -82,26 +82,95 @@
         </aside>
 
         <main class="site col-sm-9">
-            <h1>Incoherent Snippets from a Code Junkie</h1>
+            <article>
+    <h2>
+        <span class="visible-xs center-block">Brain New Beginnings</span>
+        <span class="hidden-xs">Brain New Beginnings</span>
+        <small>21 Jun 2014</small>
+    </h2>
 
- 
-    <article>
-        <h2>
-            <a class="visible-xs center-block" href="/neural%20network/2014/06/21/brain-new-beginnings.html">Brain New Beginnings</a>
-            <a class="hidden-xs" href="/neural%20network/2014/06/21/brain-new-beginnings.html">Brain New Beginnings</a>
-            <small>21 Jun 2014</small>
-        </h2>
-      
-        <p><strong>Hello, World!</strong></p>
+    <p><strong>Hello, World!</strong></p>
+
+<p>Welcome to my new blog, I’m David Clutter, I work as a full time programmer specializing in web based applications, REST, and predictive analytics.
+That is enough about me though.</p>
+
+<p>Who are you?
+Interesting, please continue…
+Great, now that we have gotten the formalities out of the way, lets begin.</p>
+
+<p>I’m currently building an artificial neural network.
+Artificial neural networks are one of the places programming looks to biology to find answers to difficult questions.
+historically computers have been used very effectively to complete complex tasks much faster than humans possibly could.
+On the opposite side, computers have a hard time completing tasks that are considered simple even for young members of our species.
+Neural networks can be trained to give the appearance of intelligence in complex spaces,
+especially when paired with a genetic algorithm, but lets not get ahead of ourselves.</p>
+
+<p><strong>The first step in building an artificial neural network is building a <code>Neuron</code>, We’ll discuss this today.</strong></p>
+
+<p>The human brain is comprised of roughly 100 billion neurons with 100 trillion connections according this <a href="http://www.scientificamerican.com/article/100-trillion-connections/">article</a> in Scientific American.
+You’d be surprised at how few neurons it actually takes to build a neural network capable of modeling complex spaces.</p>
+
+<hr />
+
+<h3 id="biological-neuron">Biological Neuron</h3>
+
+<p><img src="http://training.seer.cancer.gov/images/brain/neuron.jpg" alt="Neuron" /></p>
+
+<p>Image of neuron linked from <a href="http://training.seer.cancer.gov/images/brain/neuron.jpg">cancer.gov</a></p>
+
+<p>In our simplified version of a neuron we’ll just assume that the <code>dendrites</code> represent the inputs, the <code>cell body</code> calculates the summation, and the <code>axon terminals</code> are the outputs.
+The first algorithmic attempt at creating a neuron was call a <code>perceptron</code> and was invented by Frank Rosenblatt in 1957 <a href="https://www.zotero.org/tats/items/itemKey/54SFBCZ9">citation</a>.
+It has evolved a bit since then but the basic principle is the same.</p>
+
+<hr />
+
+<h3 id="artificial-neuron">Artificial Neuron</h3>
+
+<p><img src="/images/artificial-neuron.png" alt="Artificial Neuron" /></p>
+
+<ol>
+  <li>
+    <p>The neuron is given a list of inputs.</p>
+  </li>
+  <li>
+    <p>Performs the dot product of the input and weight lists plus the bias:</p>
+
+    <p><strong>Equation:</strong> <script type="math/tex"> bias + \sum_{i=1}^{n} input_{i} (weight_{i}) </script></p>
+  </li>
+  <li>Uses an activation function to normalize the output:
+    <ul>
+      <li><strong>Linear:</strong> <script type="math/tex"> f(x) = x </script></li>
+      <li><strong>Sigmoid:</strong> <script type="math/tex"> f(x) = \frac{1}{1 + e^{-x}} </script></li>
+      <li><strong>Hyperbolic Tangent:</strong> <script type="math/tex"> f(x) = \frac{1 - e^{-2x}}{1 + e^{-2x}} </script></li>
+    </ul>
+  </li>
+  <li>Return the output</li>
+</ol>
+
+<hr />
+
+<p><strong>In the next post we’ll begin building the neural network using <code>Java 8</code>.</strong></p>
 
 
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'clutteredcode'; // required: replace example with your forum shortname
 
-        <a href="/neural%20network/2014/06/21/brain-new-beginnings.html">Continue Reading...</a>
-    </article>
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    <hr />
-
-
+</article>
         </main>
 
     </div>
