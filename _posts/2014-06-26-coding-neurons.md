@@ -13,9 +13,6 @@ Previous post: [Brain New Beginnings]({{"neural network/2014/06/21/brain-new-beg
 
 **Github Source Code:** <a href="https://github.com/cluttered-code/neural-network" target="_blank">neural-network</a>
 
-*There are some complex equations in this post, I'll try to make it as easy to follow as possible. 
-Feel free to post questions in the comments section.*
-
 ---
 
 ### Overview
@@ -51,9 +48,9 @@ Original image obtained from: [www.intechopen.com](http://www.intechopen.com/sou
 **Linear**
 
 This functions performs no normalization and acts as a pass through returning the output of the neuron's summation. 
-This cannot be chosen used in neurons that will learn using back propagation because the derivative is 0, 
+This cannot be used in neurons that will learn using back propagation because the derivative is 0 (**more on this in a later post**), 
 This function is typically only used in the input and output layers of the neural network. 
-**More on that later**.
+.
 
 **Sigmoid**
 
@@ -65,7 +62,7 @@ This is also the preferred function for dealing with data sets containing only n
 
 The hyperbolic tangent function will normalize a given input into a value between -1 and 1. 
 This is more versatile than the sigmoid function and can be used to allow neurons to cancel each other out. 
-Can be used to more effectively determine buy/hold/sell states in data with negative and positive states.
+Can be used to more effectively determine states in data with negative and positive states such as the buy/hold/sell states of stocks.
 
 #### **Code**
 
@@ -91,8 +88,8 @@ There is a finite number of possible functions, I hope I made that obvious enoug
 When there is a finite number of options it's enumerator time. 
 I'm lazy so I only want to have to pass an `enum` to my neuron and let it take care of the rest. 
 This will alleviate the need to check for nulls or write the lambda functions all over the place, 
-causing a maintenance nightmare. I like enumerators, you aren't already you should introduce yourself 
-to them and become friends.
+causing a maintenance nightmare. I like enumerators. 
+If you aren't already, you should introduce yourself to them and become friends.
 
 {% highlight java %}
 public enum ActivationType {
@@ -103,7 +100,7 @@ public enum ActivationType {
 {% endhighlight %}
 
 Now we need a way to map from the `ActivationType` to the actual function. Enumerators in java are 
-objects just like almost everything else, we just have to add a method to do use the `enum` to give us what we want. 
+objects just like almost everything else, we just have to add a method to the `enum` to give us what we want. 
 
 **Spoiler Alert: Lambda Ahead** I added this method to `ActivationType` to accomplish that.
 {% highlight java %}
@@ -128,7 +125,7 @@ ActivationType.TAN_H.getFunction();
 
 *Side Note:* we didn't have to use lambdas here. We could have written a class for each function and had it 
 implement `ActivationFunction` but then we would have 3 more classes. This way all the definitions 
-are all in one convenient place `ActivationType`.
+are all in one convenient place: `ActivationType`.
 
 ---
 
@@ -189,3 +186,5 @@ public double fire(final double[] inputs) {
 {% endhighlight %}
 
 **Source Code:**  <a href="https://github.com/cluttered-code/neural-network/blob/master/src/main/java/com/clutteredcode/ann/Neuron.java" target="_blank">Neuron</a>
+
+**Next time we'll build the rest of the neural network using feed forward method.**
