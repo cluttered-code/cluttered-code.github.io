@@ -9,7 +9,7 @@ tags: [neuron, java8, lambda]
 In this post we'll begin building the first piece of a `Neural Network`, a `Neuron`, 
 from scratch using `Java8` and `lambda` functions.
 
-Previous post: [Brain New Beginnings]({{"neural network/2014/06/21/brain-new-beginnings/" | prepend: site.baseurl | prepend: site.url}})
+Previous post: [Brain New Beginnings]({{"/neural network/2014/06/21/brain-new-beginnings/" | prepend: site.baseurl}})
 
 **Github Source Code:** <a href="https://github.com/cluttered-code/neural-network" target="_blank">neural-network</a>
 

@@ -24,7 +24,7 @@ especially when paired with a genetic algorithm, but lets not get ahead of ourse
 
 **The first step in building an artificial neural network is building a `Neuron`, We'll discuss this today.**
 
-Next post: [Coding Neurons]({{"neural network/2014/06/26/coding-neurons/" | prepend: site.baseurl | prepend: site.url}})
+Next post: [Coding Neurons]({{"/neural network/2014/06/26/coding-neurons/" | prepend: site.baseurl}})
 
 The human brain is comprised of roughly 100 billion neurons with 100 trillion connections according this [article](http://www.scientificamerican.com/article/100-trillion-connections/) in Scientific American.
 You'd be surprised at how few neurons it actually takes to build a neural network capable of modeling complex spaces.
