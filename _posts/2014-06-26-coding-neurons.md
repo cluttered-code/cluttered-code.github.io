@@ -131,7 +131,7 @@ are all in one convenient place: `ActivationType`.
 
 ### Neuron
 
-Each neuron will need the following properties:
+Each `Neuron` will need the following properties:
 
 * bias
 * weights
@@ -180,6 +180,10 @@ The Neuron also needs a fire function that accepts the inputs and returns the ca
 All it does is pass the inputs into the dotProduct() method, add bias, and pass that into the activate function.
 
 {% highlight java %}
+public double fire(final double input) {
+    return fire(new double[]{input});
+}
+
 public double fire(final double[] inputs) {
     return activationType.getFunction().activate(bias + dotProduct(inputs));
 }
