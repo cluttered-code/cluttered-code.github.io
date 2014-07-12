@@ -185,6 +185,8 @@ private double dotProduct(final double[] inputs) {
 The Neuron also needs a fire function that accepts the inputs and returns the calculated output. 
 All it does is pass the inputs into the dotProduct() method, add bias, and pass that into the activate function.
 
+**Note:** Bias values will tend to be negative because we are adding them.
+
 {% highlight java %}
 public double fire(final double input) {
     return fire(new double[]{input});
