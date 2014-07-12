@@ -105,16 +105,22 @@ objects just like almost everything else, we just have to add a method to the `e
 **Spoiler Alert: Lambda Ahead** I added this method to `ActivationType` to accomplish that.
 {% highlight java %}
 public ActivationFunction getFunction() {
-    if (this == TAN_H)
-        return (final double input) -> Math.tanh(input);
-
-    if (this == SIGMOID)
-        return (final double input) -> 1 / (1 + Math.exp(-input));
-
-    // Default: LINEAR
-    return (final double input) -> input;
+    switch(this) {
+        case TAN_H:
+            return Math::tanh;
+        case SIGMOID:
+            return (final double input) -> 1 / (1 + Math.exp(-input));
+        default: // Linear
+            return (final double input) -> input;
+    }
 }
 {% endhighlight %}
+
+One of the cool features of `lambda` functions is this snippet from the code above.
+{% highlight java %}
+return Math::tanh;
+{% endhighlight %}
+This bit of syntactic sugar just says that the `lamba` is the same as calling Math.tanh(input)
 
 All you have to do to get your `ActivationFunction` now is:
 {% highlight java %}
