@@ -11,6 +11,8 @@ from scratch using `Java8` and `lambda` functions.
 
 Previous post: [Brain New Beginnings]({{"/neural network/2014/06/21/brain-new-beginnings/" | prepend: site.baseurl}})
 
+Next post: [Feed Forward Neural network]({{"/neural network/2014/07/11/feed-forward-neural-network/" | prepend: site.baseurl}})
+
 **Github Source Code:** <a href="https://github.com/cluttered-code/neural-network" target="_blank">neural-network</a>
 
 ---

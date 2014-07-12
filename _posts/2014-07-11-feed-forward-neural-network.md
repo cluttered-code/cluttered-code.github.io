@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Feed Forward Neural Network"
-date: 2014-07-05 16:00:00
+date: 2014-07-11 22:00:00
 categories: [neural network]
 tags: [java8, stream]
 ---
@@ -125,3 +125,95 @@ public class FeedForwardNetwork {
 
 **Source Code:** <a href="https://github.com/cluttered-code/neural-network/blob/master/src/main/java/com/clutteredcode/ann/FeedForwardNetwork.java" target="_blank">FeedForwardNetwork</a>
 
+#### **<font color="red">You have a working Neural Network!</font>**
+
+**Note:** It doesn't have the ability to "learn" yet but it is a fully functional neural network. 
+**We'll get there.**
+
+---
+
+### Validation Testing
+
+It has been demonstrated that creating a neural network that demonstrates XOR logic requires a 
+single hidden layer. I is often used to demonstrate a functioning neural network, who am I to argue. 
+
+<h4 class="text-center"><strong>XOR Logic</strong></h4>
+
+<table class="table table-nonfluid table-center table-bordered text-center">
+  <tr class="active">
+    <th>P</th>
+    <th>Q</th>
+    <th>P &oplus; Q</th>
+  </tr>
+  <tr>
+    <td class="danger">0</td>
+    <td class="danger">0</td>
+    <td class="danger"><strong>0</strong></td>
+  </tr>
+  <tr>
+    <td class="success">1</td>
+    <td class="danger">0</td>
+    <td class="success"><strong>1</strong></td>
+  </tr>
+  <tr>
+    <td class="danger">0</td>
+    <td class="success">1</td>
+    <td class="success"><strong>1</strong></td>
+  </tr>
+  <tr>
+    <td class="success">1</td>
+    <td class="success">1</td>
+    <td class="danger"><strong>0</strong></td>
+  </tr>
+</table>
+
+<h4 class="text-center"><strong>XOR Test Diagram</strong></h4>
+
+![Artificial Neuron](/images/xor-neural-network.png)
+
+#### **Code**
+
+{% highlight java %}
+public class XORIntegrationTest {
+
+    @Test
+    public void xorTest() {
+        // Input Layer
+        final Neuron inputNeuron1 = new Neuron(ActivationType.LINEAR, 0.0, new double[]{1.0});
+        final Neuron inputNeuron2 = new Neuron(ActivationType.LINEAR, 0.0, new double[]{1.0});
+        final List<Neuron> inputNeuronList = Arrays.asList(inputNeuron1, inputNeuron2);
+        final FeedForwardInputLayer inputLayer = new FeedForwardInputLayer(inputNeuronList);
+
+        // Hidden Layer
+        final Neuron hiddenNeuron1 = new Neuron(ActivationType.SIGMOID, -90, new double[]{60, 60});
+        final Neuron hiddenNeuron2 = new Neuron(ActivationType.SIGMOID, -40, new double[]{80, 80});
+        final List<Neuron> hiddenNeuronList = Arrays.asList(hiddenNeuron1, hiddenNeuron2);
+        final FeedForwardLayer hiddenLayer = new FeedForwardLayer(hiddenNeuronList);
+
+        // Output Layer
+        final Neuron outputNeuron = new Neuron(ActivationType.SIGMOID, -30, new double[]{-60, 60});
+        final List<Neuron> outputNeuronList = Arrays.asList(outputNeuron);
+        final FeedForwardLayer outputLayer = new FeedForwardLayer(outputNeuronList);
+
+        // Network
+        final List<FeedForwardLayer> layerList = Arrays.asList(inputLayer, hiddenLayer, outputLayer);
+        final FeedForwardNetwork network = new FeedForwardNetwork(layerList);
+
+        // Results
+        final double r1 = network.fire(new double[]{0.0, 0.0})[0]; // 0.0000000000000936
+        final double r2 = network.fire(new double[]{1.0, 0.0})[0]; // 0.9999999999999065
+        final double r3 = network.fire(new double[]{0.0, 1.0})[0]; // 0.9999999999999065
+        final double r4 = network.fire(new double[]{1.0, 1.0})[0]; // 0.0000000000000936
+
+        // Validations
+        assertEquals(0, Math.round(r1));
+        assertEquals(1, Math.round(r2));
+        assertEquals(1, Math.round(r3));
+        assertEquals(0, Math.round(r4));
+    }
+}
+{% endhighlight %}
+
+**Source Code:** <a href="https://github.com/cluttered-code/neural-network/blob/master/src/test/java/com/clutteredcode/ann/XORIntegrationTest.java" target="_blank">XORIntegrationTest</a>
+
+**Next time we'll add "learning" functionality**
