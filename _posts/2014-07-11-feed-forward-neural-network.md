@@ -99,7 +99,7 @@ public class FeedForwardInputLayer extends FeedForwardLayer {
 ### Network
 
 The last piece to having a funcional `Neural Network` is the `FeedForwardNetwork` itself. All it has to do is accept an array of inputs, 
-pass the inputs to the first layer, pass the outputs of the previous layer to the next layer and return the outputs of the process.
+pass the inputs to the first layer, pass the outputs of the previous layer to the next layer and return the outputs of the last layer.
 
 This is accomplished through another simple class similar to the`FeedForwardLayer` class.
 
