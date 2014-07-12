@@ -135,7 +135,7 @@ public class FeedForwardNetwork {
 ### Validation Testing
 
 It has been demonstrated that creating a neural network that demonstrates XOR logic requires a 
-single hidden layer. I is often used to demonstrate a functioning neural network, who am I to argue. 
+single hidden layer. It is often used to demonstrate a functioning neural network, who am I to argue. 
 
 <h4 class="text-center"><strong>XOR Logic</strong></h4>
 
